@@ -24,12 +24,24 @@ class StudentList extends StatelessWidget {
         backgroundColor: drawerBGClor,
       ),
       drawer: NavigationDrawerWidget(),
-      body: ListView.builder(
-        padding: const EdgeInsets.all(10.0),
-        itemCount: loadedStudents.length,
-        itemBuilder: (context, index) => StudentItem(
-          name: loadedStudents[index].name,
-          email: loadedStudents[index].email,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Color(0xff268C82),
+              Color(0xff2DA690),
+            ],
+          ),
+        ),
+        child: ListView.builder(
+          padding: const EdgeInsets.all(10.0),
+          itemCount: loadedStudents.length,
+          itemBuilder: (context, index) => StudentItem(
+            name: loadedStudents[index].name,
+            email: loadedStudents[index].email,
+          ),
         ),
       ),
     );

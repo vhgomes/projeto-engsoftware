@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 TextStyle listTileDefaultTextStyle = TextStyle(
-    color: Color(0xbfF2EDDC), fontSize: 18, fontWeight: FontWeight.w600);
+    color: Color(0xFFF2EDDC), fontSize: 18, fontWeight: FontWeight.w600);
 
 TextStyle listTileSelectedtTextStyle = TextStyle(
     color: Color(0xffFCEDDC), fontSize: 18, fontWeight: FontWeight.w600);

@@ -15,10 +15,11 @@ class NavigationDrawerWidget extends StatefulWidget {
 class NavigationDrawerWidgetState extends State<NavigationDrawerWidget>
     with SingleTickerProviderStateMixin {
   double maxWidth = 230;
-  double minWidth = 55;
+  double minWidth = 65;
   bool isCollapsed = false;
   late AnimationController _animationController;
   late Animation<double> widthAnimation;
+  int currentSelectedIndex = 0;
 
   get elevation => null;
 
@@ -59,8 +60,8 @@ class NavigationDrawerWidgetState extends State<NavigationDrawerWidget>
               animationController: _animationController,
             ),
             Divider(
-              color: Colors.grey,
-              height: 30,
+              color: Color(0xff2A3659),
+              height: 10,
             ),
             Expanded(
               child: ListView.separated(
@@ -71,6 +72,12 @@ class NavigationDrawerWidgetState extends State<NavigationDrawerWidget>
                 },
                 itemBuilder: (context, index) {
                   return CollapsingTile(
+                    onTap: () {
+                      setState(() {
+                        currentSelectedIndex = index;
+                      });
+                    },
+                    isSelected: currentSelectedIndex == index,
                     title: navigationitem[index].title,
                     icon: navigationitem[index].icon,
                     animationController: _animationController,
