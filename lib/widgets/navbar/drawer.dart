@@ -1,11 +1,17 @@
-//colapsing_navgation_drawer
-
 import 'package:flutter/material.dart';
-import 'package:project/models/theme_NavBar.dart';
+import 'package:project/theme/navbar_theme.dart';
 import 'package:project/models/navigation_model.dart';
-import 'package:project/screens/collapsing_tile.dart';
+import 'package:project/widgets/navbar/collapsing_tile.dart';
 
 class NavigationDrawerWidget extends StatefulWidget {
+  final List<NavigationModel> navigationOptions;
+  final String title;
+
+  NavigationDrawerWidget({
+    required this.navigationOptions,
+    required this.title,
+  });
+
   @override
   NavigationDrawerWidgetState createState() {
     return new NavigationDrawerWidgetState();
@@ -40,10 +46,10 @@ class NavigationDrawerWidgetState extends State<NavigationDrawerWidget>
   Widget build(BuildContext context) {
     return AnimatedBuilder(
         animation: _animationController,
-        builder: (context, widget) => getWidget(context, widget));
+        builder: (context, _widget) => getWidget(context, _widget));
   }
 
-  Widget getWidget(context, widget) {
+  Widget getWidget(context, _widget) {
     return ClipRRect(
       borderRadius: new BorderRadius.only(
         topRight: const Radius.circular(5),
@@ -55,7 +61,7 @@ class NavigationDrawerWidgetState extends State<NavigationDrawerWidget>
         child: Column(
           children: <Widget>[
             CollapsingTile(
-              title: 'Professor',
+              title: widget.title,
               icon: Icons.account_circle,
               animationController: _animationController,
             ),
@@ -78,12 +84,12 @@ class NavigationDrawerWidgetState extends State<NavigationDrawerWidget>
                       });
                     },
                     isSelected: currentSelectedIndex == index,
-                    title: navigationitem[index].title,
-                    icon: navigationitem[index].icon,
+                    title: widget.navigationOptions[index].title,
+                    icon: widget.navigationOptions[index].icon,
                     animationController: _animationController,
                   );
                 },
-                itemCount: navigationitem.length,
+                itemCount: widget.navigationOptions.length,
               ),
             ),
             InkWell(
