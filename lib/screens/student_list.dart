@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project/models/student.dart';
+import 'package:project/models/student_model.dart';
 import 'package:project/theme/navbar_theme.dart';
-import 'package:project/widgets/Student_item_list.dart';
+import 'package:project/widgets/student_item.dart';
 import 'package:project/widgets/navbar/drawer.dart';
 
 class StudentList extends StatelessWidget {
