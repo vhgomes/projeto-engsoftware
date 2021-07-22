@@ -68,7 +68,7 @@ flutter:
         - asset: assets/fonts/ComicNeue-Regular.ttf
         - asset: assets/fonts/ComicNeue-Bold.ttf
           weight: 700 
-        - asset: assets/fonts/ComicNeue-light.ttf
+        - asset: assets/fonts/ComicNeue-Light.ttf
           weight: 300 
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

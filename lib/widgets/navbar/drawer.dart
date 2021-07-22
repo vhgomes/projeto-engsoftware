@@ -1,9 +1,7 @@
-//colapsing_navgation_drawer
-
 import 'package:flutter/material.dart';
-import 'package:project/models/theme_NavBar.dart';
+import 'package:project/theme/navbar_theme.dart';
 import 'package:project/models/navigation_model.dart';
-import 'package:project/screens/collapsing_tile.dart';
+import 'package:project/widgets/navbar/collapsing_tile.dart';
 
 class NavigationDrawerWidget extends StatefulWidget {
   @override
