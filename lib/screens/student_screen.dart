@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project/models/theme_NavBar.dart';
-import 'package:project/screens/student_navigation_screen.dart';
+import 'package:project/models/navigation_model.dart';
+import 'package:project/theme/navbar_theme.dart';
+import 'package:project/widgets/navbar/drawer.dart';
 
 class StudentScreen extends StatelessWidget {
   @override
@@ -8,11 +9,15 @@ class StudentScreen extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Student Page'),
-          centerTitle: true,
           backgroundColor: drawerBGClor,
         ),
-        drawer: NavigationDrawerWidget(),
+        drawer: NavigationDrawerWidget(
+          navigationOptions: [
+            NavigationModel(icon: Icons.dns, title: 'Notas'),
+            NavigationModel(icon: Icons.logout, title: 'Sair'),
+          ],
+          title: 'Aluno',
+        ),
         body: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
