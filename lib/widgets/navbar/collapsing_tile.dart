@@ -1,7 +1,5 @@
-//colapsing_list_tile
-
 import 'package:flutter/material.dart';
-import 'package:project/models/theme_NavBar.dart';
+import 'package:project/theme/navbar_theme.dart';
 
 class CollapsingTile extends StatefulWidget {
   final String title;

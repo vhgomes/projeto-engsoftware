@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:project/models/student.dart';
-import 'package:project/models/theme_NavBar.dart';
-import 'package:project/widgets/Student_item_list.dart';
-import 'package:project/screens/navigation_Drawer.dart';
+import 'package:project/models/navigation_model.dart';
+import 'package:project/models/student_model.dart';
+import 'package:project/theme/navbar_theme.dart';
+import 'package:project/widgets/student_item.dart';
+import 'package:project/widgets/navbar/drawer.dart';
 
 class StudentList extends StatelessWidget {
   final List<Student> loadedStudents = [
@@ -23,7 +24,27 @@ class StudentList extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: drawerBGClor,
       ),
-      drawer: NavigationDrawerWidget(),
+      drawer: NavigationDrawerWidget(
+        title: 'Professor',
+        navigationOptions: [
+          NavigationModel(
+            title: "Notas",
+            icon: Icons.dns,
+          ),
+          NavigationModel(
+            title: "Lista de Alunos",
+            icon: Icons.group,
+          ),
+          NavigationModel(
+            title: "Novo Aluno",
+            icon: Icons.person,
+          ),
+          NavigationModel(
+            title: "Sair",
+            icon: Icons.logout,
+          ),
+        ],
+      ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
