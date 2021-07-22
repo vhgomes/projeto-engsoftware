@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/screens/student_screen.dart';
+import 'package:project/screens/student_form.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'ComicNeue',
       ),
-      home: StudentScreen(),
+      home: StudentForm(),
     );
   }
 }
