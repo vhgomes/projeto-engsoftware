@@ -20,19 +20,17 @@ class _LoginPageState extends State<LoginPage> {
             width: double.infinity,
             decoration: BoxDecoration(
                 gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.center,
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
                     //Nessa parte queria colocar um gradient, porém eu sou pessimo para cores e não faço a minima ideia do que colocar
                     //Deixarei passando por aqui a gente
                     colors: [
                   Color(0xff268C82),
-                  Color(0xff268C82),
-                  Color(0xff268C82),
-                  Color(0xff268C82),
+                  Color(0xff2DA690),
                 ])),
             child: SingleChildScrollView(
               padding: EdgeInsets.symmetric(
-                horizontal: ((MediaQuery.of(context).size.width)/13.66)*4,
+                horizontal: ((MediaQuery.of(context).size.width) / 13.66) * 4,
                 vertical: 120,
               ),
               child: Container(
@@ -81,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Positioned(
-            left: (MediaQuery.of(context).size.width-200)/2,
+            left: (MediaQuery.of(context).size.width - 200) / 2,
             top: 10,
             child: Icon(
               Icons.local_library,
