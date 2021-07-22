@@ -81,12 +81,12 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Positioned(
-            left: (MediaQuery.of(context).size.width-250)/2,
-            top: -50,
+            left: (MediaQuery.of(context).size.width-200)/2,
+            top: 10,
             child: Icon(
               Icons.local_library,
               color: Colors.white,
-              size: 250,
+              size: 200,
             ),
           ),
         ],
