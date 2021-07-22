@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
+class InputLoginPage extends StatelessWidget {
+  final bool hideText;
+  final String hintText;
+  final IconData icon;
 
-Widget emailBuilder() {
-  return Column(
+  InputLoginPage({
+    this.hideText = false,
+    required this.hintText,
+    required this.icon,
+  });
+  
+  @override
+  Widget build(BuildContext context) {
+    return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: <Widget>[
       Text(
-        'Email',
+        hintText,
         style: TextStyle(
             color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
       ),
@@ -27,16 +38,16 @@ Widget emailBuilder() {
         height: 60,
         width: 500,
         child: TextField(
-          keyboardType: TextInputType.emailAddress,
+          obscureText: hideText,
           style: TextStyle(color: Colors.black87),
           decoration: InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14),
+              hintText: hintText,
               prefixIcon: Icon(
-                Icons.email,
+                icon,
                 color: Colors.black,
               ),
-              hintText: 'Email',
               hintStyle: TextStyle(
                 color: Colors.black38,
               )),
@@ -44,4 +55,6 @@ Widget emailBuilder() {
       ),
     ],
   );
+  }
 }
+
