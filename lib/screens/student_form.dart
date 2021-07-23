@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/models/navigation_model.dart';
+
 import 'package:project/theme/navbar_theme.dart';
 import 'package:project/widgets/navbar/drawer.dart';
 
@@ -16,12 +17,12 @@ class StudentForm extends StatelessWidget {
         title: 'Professor',
         navigationOptions: [
           NavigationModel(
-            title: "Notas",
-            icon: Icons.dns,
-          ),
-          NavigationModel(
             title: "Lista de Alunos",
             icon: Icons.group,
+          ),
+          NavigationModel(
+            title: "Notas",
+            icon: Icons.dns,
           ),
           NavigationModel(
             title: "Novo Aluno",

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:project/theme/navbar_theme.dart';
 import 'package:project/models/navigation_model.dart';
 import 'package:project/widgets/navbar/collapsing_tile.dart';
-import 'package:project/routes/routes.dart';
 
 class NavigationDrawerWidget extends StatefulWidget {
   final List<NavigationModel> navigationOptions;
@@ -80,17 +79,22 @@ class NavigationDrawerWidgetState extends State<NavigationDrawerWidget>
                 itemBuilder: (context, index) {
                   return CollapsingTile(
                     onTap: () {
-                      setState(() {
-                        currentSelectedIndex = index;
-                      });
+                      setState(
+                        () {
+                          currentSelectedIndex = index;
+                        },
+                      );
+                      if (widget.navigationOptions[index].title ==
+                          'Lista de Alunos') {
+                        Navigator.pushNamed(context, '/');
+                      }
                       if (widget.navigationOptions[index].title == 'Notas') {
                         Navigator.pushNamed(context, '/Notas');
-                      } else if (widget.navigationOptions[index].title ==
-                          'Lista de Alunos') {
-                        Navigator.pushNamed(context, '/Lista%20de%20Alunos');
-                      } else if (widget.navigationOptions[index].title ==
+                      }
+
+                      if (widget.navigationOptions[index].title ==
                           'Novo Aluno') {
-                        Navigator.pushNamed(context, '/Novo%20Aluno');
+                        Navigator.pushNamed(context, '/Cadastro');
                       }
                     },
                     isSelected: currentSelectedIndex == index,
