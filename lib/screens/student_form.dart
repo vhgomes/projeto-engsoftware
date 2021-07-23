@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project/models/navigation_model.dart';
-
 import 'package:project/theme/navbar_theme.dart';
-import 'package:project/widgets/navbar/drawer.dart';
+import 'package:project/widgets/navbar/professor_drawer.dart';
 
 class StudentForm extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -13,27 +11,7 @@ class StudentForm extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: drawerBGClor,
       ),
-      drawer: NavigationDrawerWidget(
-        title: 'Professor',
-        navigationOptions: [
-          NavigationModel(
-            title: "Lista de Alunos",
-            icon: Icons.group,
-          ),
-          NavigationModel(
-            title: "Notas",
-            icon: Icons.dns,
-          ),
-          NavigationModel(
-            title: "Novo Aluno",
-            icon: Icons.person,
-          ),
-          NavigationModel(
-            title: "Sair",
-            icon: Icons.logout,
-          ),
-        ],
-      ),
+      drawer: ProfessorDrawer(),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
