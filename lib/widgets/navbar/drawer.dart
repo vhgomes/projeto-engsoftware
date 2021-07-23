@@ -84,18 +84,10 @@ class NavigationDrawerWidgetState extends State<NavigationDrawerWidget>
                           currentSelectedIndex = index;
                         },
                       );
-                      if (widget.navigationOptions[index].title ==
-                          'Lista de Alunos') {
-                        Navigator.pushNamed(context, '/');
-                      }
-                      if (widget.navigationOptions[index].title == 'Notas') {
-                        Navigator.pushNamed(context, '/Notas');
-                      }
-
-                      if (widget.navigationOptions[index].title ==
-                          'Novo Aluno') {
-                        Navigator.pushNamed(context, '/Cadastro');
-                      }
+                      Navigator.pushNamed(
+                        context,
+                        widget.navigationOptions[index].route,
+                      );
                     },
                     isSelected: currentSelectedIndex == index,
                     title: widget.navigationOptions[index].title,

@@ -13,8 +13,16 @@ class StudentScreen extends StatelessWidget {
         ),
         drawer: NavigationDrawerWidget(
           navigationOptions: [
-            NavigationModel(icon: Icons.dns, title: 'Notas'),
-            NavigationModel(icon: Icons.logout, title: 'Sair'),
+            NavigationModel(
+              icon: Icons.dns,
+              title: 'Notas',
+              route: '/',
+            ),
+            NavigationModel(
+              icon: Icons.logout,
+              title: 'Sair',
+              route: '/',
+            ),
           ],
           title: 'Aluno',
         ),

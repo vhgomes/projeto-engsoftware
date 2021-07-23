@@ -13,18 +13,22 @@ class ProfessorDrawer extends StatelessWidget {
         NavigationModel(
           title: "Lista de Alunos",
           icon: Icons.group,
+          route: '/',
         ),
         NavigationModel(
           title: "Notas",
           icon: Icons.dns,
+          route: '/Notas',
         ),
         NavigationModel(
           title: "Novo Aluno",
           icon: Icons.person,
+          route: '/Cadastro',
         ),
         NavigationModel(
           title: "Sair",
           icon: Icons.logout,
+          route: '/',
         ),
       ],
     );
