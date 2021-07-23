@@ -15,7 +15,6 @@ class StudentList extends StatelessWidget {
       password: 'fgreatr',
       nota1: 7.1,
       nota2: 8.5,
-      media: 7.8,
     ),
   ];
 
