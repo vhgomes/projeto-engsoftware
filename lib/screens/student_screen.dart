@@ -29,6 +29,35 @@ class StudentScreen extends StatelessWidget {
               ],
             ),
           ),
+          child: ListView(
+            padding: const EdgeInsets.all(10.0),
+            children: <Widget>[
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text('Nota 1'),
+                    Text('Nota 2'),
+                    Text('Media'),
+                  ],
+                ),
+                height: 50,
+                color: Color(0xFFF268C82),
+              ),
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text('8.9'),
+                    Text('6.5'),
+                    Text('7.7'),
+                  ],
+                ),
+                height: 50,
+                color: Color(0xFFF2DA690),
+              ),
+            ],
+          ),
         ),
       ),
     );
