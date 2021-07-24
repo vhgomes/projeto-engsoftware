@@ -24,8 +24,8 @@ class Studentgrade extends StatelessWidget {
               name,
               style: TextStyle(
                 color: Color(0xFFF2EDDC),
-                fontSize: 24,
-                fontWeight: FontWeight.w400,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
               ),
             ),
             trailing: Wrap(
@@ -40,7 +40,7 @@ class Studentgrade extends StatelessWidget {
                         nota1.toString(),
                         style: TextStyle(
                           color: Color(0xFFF2EDDC),
-                          fontSize: 22,
+                          fontSize: 18,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
@@ -48,7 +48,7 @@ class Studentgrade extends StatelessWidget {
                         nota2.toString(),
                         style: TextStyle(
                           color: Color(0xFFF2EDDC),
-                          fontSize: 22,
+                          fontSize: 18,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
@@ -56,7 +56,7 @@ class Studentgrade extends StatelessWidget {
                         media.toString(),
                         style: TextStyle(
                           color: Color(0xFFF2EDDC),
-                          fontSize: 22,
+                          fontSize: 18,
                           fontWeight: FontWeight.w400,
                         ),
                       ),

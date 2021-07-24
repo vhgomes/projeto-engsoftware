@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class StudentItem extends StatelessWidget {
   final String name;
   final String email;
@@ -19,6 +18,7 @@ class StudentItem extends StatelessWidget {
           name,
           style: TextStyle(
             color: Colors.white,
+            fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -26,6 +26,8 @@ class StudentItem extends StatelessWidget {
           email,
           style: TextStyle(
             color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.w400,
           ),
         ),
       ),
