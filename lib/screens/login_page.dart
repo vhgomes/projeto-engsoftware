@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/login/inputs_builder.dart';
-import '../widgets/login/button_builder.dart';
+import 'package:project/widgets/login/inputs_builder.dart';
+import 'package:project/widgets/login/button_builder.dart';
 
 class LoginPage extends StatefulWidget {
   @override

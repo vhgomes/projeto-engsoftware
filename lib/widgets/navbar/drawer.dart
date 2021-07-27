@@ -79,9 +79,15 @@ class NavigationDrawerWidgetState extends State<NavigationDrawerWidget>
                 itemBuilder: (context, index) {
                   return CollapsingTile(
                     onTap: () {
-                      setState(() {
-                        currentSelectedIndex = index;
-                      });
+                      setState(
+                        () {
+                          currentSelectedIndex = index;
+                        },
+                      );
+                      Navigator.pushNamed(
+                        context,
+                        widget.navigationOptions[index].route,
+                      );
                     },
                     isSelected: currentSelectedIndex == index,
                     title: widget.navigationOptions[index].title,

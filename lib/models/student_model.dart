@@ -6,7 +6,6 @@ class Student {
   final String password;
   final double nota1;
   final double nota2;
-  final double media;
 
   Student({
     required this.id,
@@ -16,6 +15,5 @@ class Student {
     required this.password,
     required this.nota1,
     required this.nota2,
-    required this.media,
   });
 }

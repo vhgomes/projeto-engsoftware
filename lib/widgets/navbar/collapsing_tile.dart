@@ -37,36 +37,36 @@ class _CState extends State<CollapsingTile> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: widget.onTap,
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
-            color: widget.isSelected
-                ? Colors.transparent.withOpacity(0.2)
-                : Colors.transparent,
-          ),
-          width: widthAnimation.value,
-          margin: EdgeInsets.symmetric(horizontal: 8),
-          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 5),
-          child: Row(
-            children: <Widget>[
-              Icon(
-                widget.icon,
-                color:
-                    widget.isSelected ? Color(0xff2DA690) : Color(0xffFCEDDC),
-                size: 33.0,
-              ),
-              SizedBox(width: sizedBoxAnimation.value),
-              (widthAnimation.value >= 230)
-                  ? Text(
-                      widget.title,
-                      style: widget.isSelected
-                          ? listTileDefaultTextStyle
-                          : listTileDefaultTextStyle,
-                    )
-                  : Container()
-            ],
-          ),
-        ));
+      onTap: widget.onTap,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5),
+          color: widget.isSelected
+              ? Colors.transparent.withOpacity(0.2)
+              : Colors.transparent,
+        ),
+        width: widthAnimation.value,
+        margin: EdgeInsets.symmetric(horizontal: 8),
+        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+        child: Row(
+          children: <Widget>[
+            Icon(
+              widget.icon,
+              color: widget.isSelected ? Color(0xff2DA690) : Color(0xffFCEDDC),
+              size: 33.0,
+            ),
+            SizedBox(width: sizedBoxAnimation.value),
+            (widthAnimation.value >= 230)
+                ? Text(
+                    widget.title,
+                    style: widget.isSelected
+                        ? listTileDefaultTextStyle
+                        : listTileDefaultTextStyle,
+                  )
+                : Container()
+          ],
+        ),
+      ),
+    );
   }
 }
