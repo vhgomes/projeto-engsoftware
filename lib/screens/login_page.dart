@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/theme/app_theme.dart';
 
 import 'package:project/widgets/login/inputs_builder.dart';
 import 'package:project/widgets/login/button_builder.dart';
@@ -17,16 +18,7 @@ class _LoginPageState extends State<LoginPage> {
           Container(
             height: double.infinity,
             width: double.infinity,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [
-                  Color(0xff268C82),
-                  Color(0xff2DA690),
-                ],
-              ),
-            ),
+            decoration: AppTheme.backgroudTheme(),
             child: SingleChildScrollView(
               padding: EdgeInsets.symmetric(
                 horizontal: ((MediaQuery.of(context).size.width) / 13.66) * 4,

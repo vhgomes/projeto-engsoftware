@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/theme/app_theme.dart';
 import 'package:project/theme/navbar_theme.dart';
 import 'package:project/widgets/navbar/professor_drawer.dart';
 
@@ -13,16 +14,7 @@ class StudentForm extends StatelessWidget {
       ),
       drawer: ProfessorDrawer(),
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [
-              Color(0xff268C82),
-              Color(0xff2DA690),
-            ],
-          ),
-        ),
+        decoration: AppTheme.backgroudTheme(),
         child: Center(
           child: ClipRRect(
             borderRadius: BorderRadius.circular(5),
