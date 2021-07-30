@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/theme/app_theme.dart';
 
-import 'package:project/widgets/login/inputs_builder.dart';
-import 'package:project/widgets/login/button_builder.dart';
-
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -28,10 +25,10 @@ class _LoginPageState extends State<LoginPage> {
                 height: 400,
                 width: 200,
                 decoration: BoxDecoration(
-                  color: Color(0xff2A3659),
+                  //color: Color(0xff2A3659),
                   border: Border.all(
-                    color: Color(0xff2A3659),
-                  ),
+                      //color: Color(0xff2A3659),
+                      ),
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: Column(
@@ -40,22 +37,12 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       height: 25,
                     ),
-                    InputLoginPage(
-                      icon: Icons.email,
-                      hintText: 'Email',
+                    SizedBox(
+                      height: 25,
                     ),
                     SizedBox(
                       height: 25,
                     ),
-                    InputLoginPage(
-                      icon: Icons.password,
-                      hintText: 'Password',
-                      hideText: true,
-                    ),
-                    SizedBox(
-                      height: 25,
-                    ),
-                    loginButtonBuilder()
                   ],
                 ),
               ),

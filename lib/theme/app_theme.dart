@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static ThemeData colorTheme() {
+  static ThemeData colorTheme(context) {
     return ThemeData(
       fontFamily: 'ComicNeue',
+      buttonTheme: ButtonTheme.of(context).copyWith(
+        buttonColor: Color(0xff2A3659),
+        textTheme: ButtonTextTheme.primary,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+      ),
     );
   }
 

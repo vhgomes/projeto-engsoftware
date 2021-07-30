@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: AppTheme.colorTheme(),
+      theme: AppTheme.colorTheme(context),
       initialRoute: '/',
       routes: {
         '/Lista%20Estudante': (context) => StudentList(),
