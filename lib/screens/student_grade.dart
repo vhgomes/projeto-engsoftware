@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/theme/app_theme.dart';
 import 'package:project/theme/navbar_theme.dart';
 import 'package:project/models/student_model.dart';
 import 'package:project/widgets/student_grade.dart';
@@ -23,16 +24,7 @@ class StudentListGrade extends StatelessWidget {
       ),
       drawer: ProfessorDrawer(),
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [
-              Color(0xff268C82),
-              Color(0xff2DA690),
-            ],
-          ),
-        ),
+        decoration: AppTheme.backgroudTheme(),
         child: ListView.builder(
           padding: const EdgeInsets.all(10.0),
           itemCount: loadedStudents.length,

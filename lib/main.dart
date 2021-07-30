@@ -5,6 +5,7 @@ import 'package:project/screens/student_form.dart';
 import 'package:project/screens/student_grade.dart';
 import 'package:project/screens/student_list.dart';
 import 'package:project/screens/student_screen.dart';
+import 'package:project/theme/app_theme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,9 +43,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        fontFamily: 'ComicNeue',
-      ),
+      theme: AppTheme.colorTheme(context),
       initialRoute: '/',
       routes: {
         '/Lista%20Estudante': (context) => StudentList(),

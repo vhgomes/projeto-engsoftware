@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/models/navigation_model.dart';
+import 'package:project/theme/app_theme.dart';
 import 'package:project/theme/navbar_theme.dart';
 import 'package:project/widgets/navbar/drawer.dart';
 
@@ -27,16 +28,7 @@ class StudentScreen extends StatelessWidget {
           title: 'Aluno',
         ),
         body: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                Color(0xff268C82),
-                Color(0xff2DA690),
-              ],
-            ),
-          ),
+          decoration: AppTheme.backgroudTheme(),
           child: ListView(
             padding: const EdgeInsets.all(10.0),
             children: <Widget>[
