@@ -4,13 +4,9 @@ class AppTheme {
   static ThemeData colorTheme(context) {
     return ThemeData(
       fontFamily: 'ComicNeue',
-      buttonTheme: ButtonTheme.of(context).copyWith(
-        buttonColor: Color(0xff2A3659),
-        textTheme: ButtonTextTheme.primary,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-      ),
+      primarySwatch: Colors.cyan,
+      primaryColor: Colors.white,
+      hintColor: Colors.transparent,
     );
   }
 
