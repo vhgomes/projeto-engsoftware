@@ -16,7 +16,9 @@ class _LoginScreenState extends State<LoginScreen> {
   ) async {
     try {
       await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
+          .signInWithEmailAndPassword(email: email, password: password)
+          .then(
+              (value) => Navigator.of(context).pushNamed('/Lista%20Estudante'));
     } on FirebaseAuthException catch (error) {
       var message = '';
 
