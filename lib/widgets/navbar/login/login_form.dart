@@ -17,41 +17,65 @@ class _LoginFormState extends State<LoginForm> {
           height: double.infinity,
           width: double.infinity,
           decoration: AppTheme.backgroudTheme(),
-          child: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(
-              horizontal: ((MediaQuery.of(context).size.width) / 13.66) * 4,
-              vertical: 120,
-            ),
-            child: Container(
-              height: 400,
-              width: 200,
-              decoration: BoxDecoration(
-                //color: Color(0xff2A3659),
-                border: Border.all(
-                    //color: Color(0xff2A3659),
+          child: Center(
+            child: Card(
+              color: Color(0xff2A3659),
+              margin: EdgeInsets.symmetric(vertical: 100, horizontal: 250),
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.all(80),
+                  child: Form(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        TextFormField(
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: InputDecoration(
+                            labelText: 'E-mail',
+                            labelStyle: TextStyle(
+                              color: Colors.cyan,
+                            ),
+                          ),
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            labelText: 'Senha',
+                            labelStyle: TextStyle(
+                              color: Colors.cyan,
+                            ),
+                          ),
+                          obscureText: true,
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(height: 40),
+                        ElevatedButton(
+                          onPressed: () {},
+                          child: Text('Login'),
+                          style: ButtonStyle(
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(
-                    height: 25,
                   ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                ],
+                ),
               ),
             ),
           ),
         ),
         Positioned(
           left: (MediaQuery.of(context).size.width - 200) / 2,
-          top: 10,
+          top: 40,
           child: Icon(
             Icons.local_library,
             color: Colors.white,
