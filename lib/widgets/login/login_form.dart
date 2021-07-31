@@ -3,7 +3,13 @@ import 'package:project/theme/app_theme.dart';
 import 'package:email_validator/email_validator.dart';
 
 class LoginForm extends StatefulWidget {
-  const LoginForm({Key? key}) : super(key: key);
+  LoginForm(this.submitFn);
+
+  final void Function(
+    String email,
+    String password,
+    BuildContext ctx,
+  ) submitFn;
 
   @override
   _LoginFormState createState() => _LoginFormState();
@@ -20,6 +26,7 @@ class _LoginFormState extends State<LoginForm> {
 
     if (isValid) {
       _formKey.currentState!.save();
+      widget.submitFn(_userEmail, _userPassword, context);
     }
   }
 
@@ -45,7 +52,7 @@ class _LoginFormState extends State<LoginForm> {
                       children: <Widget>[
                         TextFormField(
                           validator: (value) {
-                            if (EmailValidator.validate(value!) ||
+                            if (!EmailValidator.validate(value!) ||
                                 value.isEmpty) return 'E-mail inválido';
                           },
                           keyboardType: TextInputType.emailAddress,
@@ -67,7 +74,7 @@ class _LoginFormState extends State<LoginForm> {
                         ),
                         TextFormField(
                           validator: (value) {
-                            if (value!.isEmpty || value.length < 4)
+                            if (value!.isEmpty || value.length < 6)
                               return 'Senha muito curta.';
                           },
                           decoration: InputDecoration(

@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
         '/Notas%20Professor': (context) => StudentListGrade(),
         '/Cadastro': (context) => StudentForm(),
         '/Notas%20Aluno': (context) => StudentScreen(),
-        '/': (context) => LoginScreen(), // TODO: Rota inicial login screen
+        '/': (context) => LoginScreen(),
       },
     );
   }
