@@ -9,10 +9,10 @@ class Student extends User {
     required this.nota1,
     required this.nota2,
   }) : super(
-          email: user.email,
           uniqueID: user.uniqueID,
-          isStudent: user.isStudent,
           name: user.name,
+          email: user.email,
           senha: user.senha,
+          isStudent: user.isStudent,
         );
 }
