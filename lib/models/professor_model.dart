@@ -1,13 +1,12 @@
-class Professor {
-  final String professorName;
-  final String email;
-  final String password;
-  final String idUnicoProfessor;
-  
-  Professor({
-    required this.idUnicoProfessor,
-    required this.professorName,
-    required this.email,
-    required this.password,
-  });
+import 'package:project/models/user.dart';
+
+class Professor extends User {
+  Professor(User user)
+      : super(
+          uniqueID: user.uniqueID,
+          name: user.name,
+          email: user.email,
+          senha: user.senha,
+          isStudent: user.isStudent,
+        );
 }
