@@ -10,7 +10,6 @@ class StudentList extends StatelessWidget {
     Student(
       id: 's1',
       name: 'Filipe Marques de Souza',
-      user: 'Filipe.souza',
       email: 'filipe.souza1906@gmail.com',
       password: 'fgreatr',
       nota1: 7.1,
