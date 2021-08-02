@@ -5,7 +5,9 @@ import 'package:project/screens/student_grade.dart';
 import 'package:project/screens/student_list.dart';
 import 'package:project/screens/student_screen.dart';
 
-void main() => runApp(MyApp());
+Future<void> main() async {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
