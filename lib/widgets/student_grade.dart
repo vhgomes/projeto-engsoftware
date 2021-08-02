@@ -24,8 +24,8 @@ class Studentgrade extends StatelessWidget {
               name,
               style: TextStyle(
                 color: Color(0xFFF2EDDC),
-                fontSize: 24,
-                fontWeight: FontWeight.w400,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
               ),
             ),
             trailing: Wrap(
@@ -36,27 +36,39 @@ class Studentgrade extends StatelessWidget {
                   child: Wrap(
                     spacing: 25,
                     children: [
-                      Text(
-                        nota1.toString(),
-                        style: TextStyle(
-                          color: Color(0xFFF2EDDC),
-                          fontSize: 22,
-                          fontWeight: FontWeight.w400,
+                      Container(
+                        height: 30,
+                        width: 50,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: nota1.toString(),
+                            hintStyle: (TextStyle(
+                              fontSize: 22,
+                              color: Color(0xFFF2EDDC),
+                              fontWeight: FontWeight.w400,
+                            )),
+                          ),
                         ),
                       ),
-                      Text(
-                        nota2.toString(),
-                        style: TextStyle(
-                          color: Color(0xFFF2EDDC),
-                          fontSize: 22,
-                          fontWeight: FontWeight.w400,
+                      Container(
+                        height: 30,
+                        width: 50,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: nota2.toString(),
+                            hintStyle: (TextStyle(
+                              fontSize: 22,
+                              color: Color(0xFFF2EDDC),
+                              fontWeight: FontWeight.w400,
+                            )),
+                          ),
                         ),
                       ),
                       Text(
                         media.toString(),
                         style: TextStyle(
                           color: Color(0xFFF2EDDC),
-                          fontSize: 22,
+                          fontSize: 18,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
