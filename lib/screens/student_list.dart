@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/theme/app_theme.dart';
+import 'package:project/models/user.dart';
 import 'package:project/theme/navbar_theme.dart';
 import 'package:project/models/student_model.dart';
 import 'package:project/widgets/student_item.dart';
@@ -8,11 +9,13 @@ import 'package:project/widgets/navbar/professor_drawer.dart';
 class StudentList extends StatelessWidget {
   final List<Student> loadedStudents = [
     Student(
-      id: 's1',
-      name: 'Filipe Marques de Souza',
-      user: 'Filipe.souza',
-      email: 'filipe.souza1906@gmail.com',
-      password: 'fgreatr',
+      User(
+        password: '123',
+        name: 'Filipe Marques de Souza',
+        isStudent: true,
+        uniqueID: 's1',
+        email: 'filipe.souza1906@gmail.com',
+      ),
       nota1: 7.1,
       nota2: 8.5,
     ),
