@@ -1,19 +1,18 @@
-class Student {
-  final String id;
-  final String name;
-  final String user;
-  final String email;
-  final String password;
+import 'package:project/models/user.dart';
+
+class Student extends User {
   final double nota1;
   final double nota2;
 
-  Student({
-    required this.id,
-    required this.name,
-    required this.user,
-    required this.email,
-    required this.password,
+  Student(
+    User user, {
     required this.nota1,
     required this.nota2,
-  });
+  }) : super(
+          uniqueID: user.uniqueID,
+          name: user.name,
+          email: user.email,
+          password: user.password,
+          isStudent: user.isStudent,
+        );
 }
