@@ -10,7 +10,7 @@ class StudentList extends StatelessWidget {
   final List<Student> loadedStudents = [
     Student(
       User(
-        senha: '123',
+        password: '123',
         name: 'Filipe Marques de Souza',
         isStudent: true,
         uniqueID: 's1',

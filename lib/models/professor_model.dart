@@ -6,7 +6,7 @@ class Professor extends User {
           uniqueID: user.uniqueID,
           name: user.name,
           email: user.email,
-          senha: user.senha,
+          password: user.password,
           isStudent: user.isStudent,
         );
 }
