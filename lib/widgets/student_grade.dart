@@ -36,22 +36,6 @@ class Studentgrade extends StatelessWidget {
                   child: Wrap(
                     spacing: 25,
                     children: [
-<<<<<<< HEAD
-                      Text(
-                        nota1.toString(),
-                        style: TextStyle(
-                          color: Color(0xFFF2EDDC),
-                          fontSize: 18,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      Text(
-                        nota2.toString(),
-                        style: TextStyle(
-                          color: Color(0xFFF2EDDC),
-                          fontSize: 18,
-                          fontWeight: FontWeight.w400,
-=======
                       Container(
                         height: 30,
                         width: 50,
@@ -78,7 +62,6 @@ class Studentgrade extends StatelessWidget {
                               fontWeight: FontWeight.w400,
                             )),
                           ),
->>>>>>> feature/grades
                         ),
                       ),
                       Text(

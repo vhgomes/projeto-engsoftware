@@ -7,7 +7,6 @@ import 'package:project/screens/student_list.dart';
 import 'package:project/screens/student_screen.dart';
 import 'package:project/theme/app_theme.dart';
 
-<<<<<<< HEAD
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(App());
@@ -38,10 +37,6 @@ class _AppState extends State<App> {
       },
     );
   }
-=======
-Future<void> main() async {
-  runApp(MyApp());
->>>>>>> feature/grades
 }
 
 class MyApp extends StatelessWidget {
