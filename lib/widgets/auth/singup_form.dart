@@ -4,7 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:project/theme/app_theme.dart';
 
 class SingUpForm extends StatefulWidget {
-  const SingUpForm({Key? key}) : super(key: key);
+  SingUpForm(this.submitFn);
+
+  final void Function(
+    String name,
+    String email,
+    String password,
+    BuildContext ctx,
+  ) submitFn;
 
   @override
   _SingUpFormState createState() => _SingUpFormState();
@@ -24,16 +31,9 @@ class _SingUpFormState extends State<SingUpForm> {
 
     if (isValid) {
       _formKey.currentState!.save();
+      widget.submitFn(_studentName, _studentEmail, _studentPassword, context);
 
-      FirebaseFirestore.instance
-          .collection('user/XCXcmzFQIcWptPsjgwRR/student')
-          .add({
-        'name': _studentName,
-        'email': _studentEmail,
-        'password': _studentPassword,
-      });
-
-      ScaffoldMessenger.of(context).showSnackBar(
+      /*ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
             'Aluno cadastrado com sucesso!',
@@ -41,7 +41,7 @@ class _SingUpFormState extends State<SingUpForm> {
           ),
           backgroundColor: Colors.white,
         ),
-      );
+      );*/
     }
   }
 

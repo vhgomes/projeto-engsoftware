@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:project/theme/navbar_theme.dart';
 import 'package:project/widgets/auth/singup_form.dart';
@@ -11,6 +13,38 @@ class StudentSignUp extends StatefulWidget {
 }
 
 class _StudentSignUpState extends State<StudentSignUp> {
+  void _submitAuthForm(
+    String name,
+    String email,
+    String password,
+    BuildContext ctx,
+  ) async {
+    var message = '';
+
+    try {
+      await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
+
+      FirebaseFirestore.instance.collection('student').add({
+        'name': name,
+        'email': email,
+      });
+
+      message = 'Aluno cadastrado com sucesso!';
+    } on FirebaseAuthException catch (error) {
+      if (error.code == 'email-already-in-use') {
+        message = 'E-mail já cadastrado.';
+      } else if (error.code == 'weak-password') {
+        message = 'Senha muito curta.';
+      }
+    }
+
+    Scaffold.of(ctx).showBottomSheet(
+      (context) => Text(message),
+      backgroundColor: Colors.white,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +52,7 @@ class _StudentSignUpState extends State<StudentSignUp> {
         backgroundColor: drawerBGClor,
       ),
       drawer: ProfessorDrawer(),
-      body: SingUpForm(),
+      body: SingUpForm(_submitAuthForm),
     );
   }
 }
