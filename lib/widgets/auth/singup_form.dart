@@ -18,6 +18,33 @@ class _SingUpFormState extends State<SingUpForm> {
   var _email = '';
   var _confirmPassword = '';
 
+  void _trySubmit() {
+    final isValid = _formKey.currentState!.validate();
+    FocusScope.of(context).unfocus();
+
+    if (isValid) {
+      _formKey.currentState!.save();
+
+      FirebaseFirestore.instance
+          .collection('user/XCXcmzFQIcWptPsjgwRR/student')
+          .add({
+        'name': _name,
+        'email': _email,
+        'password': _confirmPassword,
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            'Aluno cadastrado com sucesso!',
+            style: TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.white,
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -138,29 +165,7 @@ class _SingUpFormState extends State<SingUpForm> {
                             ),
                           ),
                         ),
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            _formKey.currentState!.save();
-
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'Aluno cadastrado com sucesso!',
-                                  style: TextStyle(color: Colors.black),
-                                ),
-                                backgroundColor: Colors.white,
-                              ),
-                            );
-                          }
-
-                          FirebaseFirestore.instance
-                              .collection('user/XCXcmzFQIcWptPsjgwRR/student')
-                              .add({
-                            'name': _name,
-                            'email': _email,
-                            'password': _confirmPassword,
-                          });
-                        },
+                        onPressed: _trySubmit,
                         child: Text('Confimar'),
                       ),
                     ),
