@@ -40,7 +40,9 @@ class Studentgrade extends StatelessWidget {
                         height: 30,
                         width: 50,
                         child: TextFormField(
+                          enabled: false,
                           decoration: InputDecoration(
+                            contentPadding: EdgeInsets.all(10),
                             hintText: nota1.toString(),
                             hintStyle: (TextStyle(
                               fontSize: 22,
@@ -54,7 +56,9 @@ class Studentgrade extends StatelessWidget {
                         height: 30,
                         width: 50,
                         child: TextFormField(
+                          enabled: false,
                           decoration: InputDecoration(
+                            contentPadding: EdgeInsets.all(10),
                             hintText: nota2.toString(),
                             hintStyle: (TextStyle(
                               fontSize: 22,
@@ -64,12 +68,15 @@ class Studentgrade extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Text(
-                        media.toString(),
-                        style: TextStyle(
-                          color: Color(0xFFF2EDDC),
-                          fontSize: 18,
-                          fontWeight: FontWeight.w400,
+                      Padding(
+                        padding: EdgeInsets.all(3.8),
+                        child: Text(
+                          media.toString(),
+                          style: TextStyle(
+                            color: Color(0xFFF2EDDC),
+                            fontSize: 22,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ),
                     ],
