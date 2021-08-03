@@ -41,8 +41,8 @@ class StudentForm extends StatelessWidget {
                         ),
                       ),
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
+                        if (value!.isEmpty) {
+                          return 'Campo obrigatório.';
                         }
                         return null;
                       },
@@ -62,8 +62,8 @@ class StudentForm extends StatelessWidget {
                         ),
                       ),
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
+                        if (value!.isEmpty) {
+                          return 'Campo obrigatório.';
                         }
                         return null;
                       },
@@ -83,8 +83,8 @@ class StudentForm extends StatelessWidget {
                         ),
                       ),
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
+                        if (value!.isEmpty || value.length < 6) {
+                          return 'Senha muito curta.';
                         }
                         return null;
                       },
@@ -104,8 +104,8 @@ class StudentForm extends StatelessWidget {
                         ),
                       ),
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
+                        if (value!.isEmpty || value.length < 4) {
+                          return 'Senha muito curta.';
                         }
                         return null;
                       },
