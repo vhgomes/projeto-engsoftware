@@ -25,6 +25,7 @@ class StudentList extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: drawerBGClor,
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       drawer: ProfessorDrawer(),
       body: Container(

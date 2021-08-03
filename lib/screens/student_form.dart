@@ -11,6 +11,7 @@ class StudentForm extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: drawerBGClor,
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       drawer: ProfessorDrawer(),
       body: Container(
@@ -157,7 +158,10 @@ class StudentForm extends StatelessWidget {
                               );
                             }
                           },
-                          child: Text('Confimar'),
+                          child: Text(
+                            'Confimar',
+                            style: TextStyle(color: Colors.white),
+                          ),
                         ),
                       ),
                     ),
