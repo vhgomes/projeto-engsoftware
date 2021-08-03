@@ -14,9 +14,9 @@ class _SingUpFormState extends State<SingUpForm> {
   final _formKey = GlobalKey<FormState>();
   final _password = TextEditingController();
 
-  var _name = '';
-  var _email = '';
-  var _confirmPassword = '';
+  var _studentName = '';
+  var _studentEmail = '';
+  var _studentPassword = '';
 
   void _trySubmit() {
     final isValid = _formKey.currentState!.validate();
@@ -28,9 +28,9 @@ class _SingUpFormState extends State<SingUpForm> {
       FirebaseFirestore.instance
           .collection('user/XCXcmzFQIcWptPsjgwRR/student')
           .add({
-        'name': _name,
-        'email': _email,
-        'password': _confirmPassword,
+        'name': _studentName,
+        'email': _studentEmail,
+        'password': _studentPassword,
       });
 
       ScaffoldMessenger.of(context).showSnackBar(
@@ -78,7 +78,7 @@ class _SingUpFormState extends State<SingUpForm> {
                       if (value!.isEmpty) return 'Campo obrigatório.';
                     },
                     onSaved: (value) {
-                      _name = value!;
+                      _studentName = value!;
                     },
                   ),
                   SizedBox(height: 5),
@@ -100,7 +100,7 @@ class _SingUpFormState extends State<SingUpForm> {
                         return 'E-mail inválido.';
                     },
                     onSaved: (value) {
-                      _email = value!;
+                      _studentEmail = value!;
                     },
                   ),
                   SizedBox(height: 5),
@@ -145,7 +145,7 @@ class _SingUpFormState extends State<SingUpForm> {
                       }
                     },
                     onSaved: (value) {
-                      _confirmPassword = value!;
+                      _studentPassword = value!;
                     },
                   ),
                   Padding(
