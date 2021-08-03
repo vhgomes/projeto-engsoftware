@@ -5,7 +5,14 @@ import 'package:project/widgets/navbar/professor_drawer.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class StudentForm extends StatelessWidget {
+class StudentSignUp extends StatefulWidget {
+  const StudentSignUp({Key? key}) : super(key: key);
+
+  @override
+  _StudentSignUpState createState() => _StudentSignUpState();
+}
+
+class _StudentSignUpState extends State<StudentSignUp> {
   final _formKey = GlobalKey<FormState>();
   final _password = TextEditingController();
 
