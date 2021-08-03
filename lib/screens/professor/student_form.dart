@@ -53,27 +53,6 @@ class StudentForm extends StatelessWidget {
                       decoration: const InputDecoration(
                         fillColor: Color(0x88111026),
                         filled: true,
-                        hintText: 'Usuario',
-                        hintStyle: TextStyle(color: Color(0xFFF2EDDC)),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(25),
-                          ),
-                        ),
-                      ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
-                        }
-                        return null;
-                      },
-                    ),
-                    SizedBox(height: 5),
-                    TextFormField(
-                      style: TextStyle(color: Color(0xFFF2EDDC)),
-                      decoration: const InputDecoration(
-                        fillColor: Color(0x88111026),
-                        filled: true,
                         hintText: 'e-mail',
                         hintStyle: TextStyle(color: Color(0xFFF2EDDC)),
                         border: OutlineInputBorder(
