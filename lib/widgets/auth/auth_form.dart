@@ -53,7 +53,7 @@ class _AuthFormState extends State<AuthForm> {
                         TextFormField(
                           validator: (value) {
                             if (!EmailValidator.validate(value!) ||
-                                value.isEmpty) return 'E-mail inválido';
+                                value.isEmpty) return 'E-mail inválido.';
                           },
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(

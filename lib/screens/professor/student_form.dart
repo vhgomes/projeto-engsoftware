@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:project/theme/app_theme.dart';
 import 'package:project/theme/navbar_theme.dart';
 import 'package:project/widgets/navbar/professor_drawer.dart';
+import 'package:email_validator/email_validator.dart';
 
 class StudentForm extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
+  final _password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,10 +43,7 @@ class StudentForm extends StatelessWidget {
                         ),
                       ),
                       validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Campo obrigatório.';
-                        }
-                        return null;
+                        if (value!.isEmpty) return 'Campo obrigatório.';
                       },
                     ),
                     SizedBox(height: 5),
@@ -53,7 +52,7 @@ class StudentForm extends StatelessWidget {
                       decoration: const InputDecoration(
                         fillColor: Color(0x88111026),
                         filled: true,
-                        hintText: 'e-mail',
+                        hintText: 'E-mail',
                         hintStyle: TextStyle(color: Color(0xFFF2EDDC)),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
@@ -62,14 +61,13 @@ class StudentForm extends StatelessWidget {
                         ),
                       ),
                       validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Campo obrigatório.';
-                        }
-                        return null;
+                        if (!EmailValidator.validate(value!) || value.isEmpty)
+                          return 'E-mail inválido.';
                       },
                     ),
                     SizedBox(height: 5),
                     TextFormField(
+                      controller: _password,
                       style: TextStyle(color: Color(0xFFF2EDDC)),
                       decoration: const InputDecoration(
                         fillColor: Color(0x88111026),
@@ -83,10 +81,8 @@ class StudentForm extends StatelessWidget {
                         ),
                       ),
                       validator: (value) {
-                        if (value!.isEmpty || value.length < 6) {
+                        if (value!.isEmpty || value.length < 6)
                           return 'Senha muito curta.';
-                        }
-                        return null;
                       },
                     ),
                     SizedBox(height: 5),
@@ -104,10 +100,11 @@ class StudentForm extends StatelessWidget {
                         ),
                       ),
                       validator: (value) {
-                        if (value!.isEmpty || value.length < 4) {
-                          return 'Senha muito curta.';
+                        if (value!.isEmpty)
+                          return 'Campo obrigatório';
+                        else if (value != _password.text) {
+                          return 'Senha incorreta.';
                         }
-                        return null;
                       },
                     ),
                     Padding(
