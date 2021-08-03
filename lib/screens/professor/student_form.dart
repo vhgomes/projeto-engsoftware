@@ -3,10 +3,15 @@ import 'package:project/theme/app_theme.dart';
 import 'package:project/theme/navbar_theme.dart';
 import 'package:project/widgets/navbar/professor_drawer.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class StudentForm extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   final _password = TextEditingController();
+
+  var _name = '';
+  var _email = '';
+  var _confirmPassword = '';
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +50,9 @@ class StudentForm extends StatelessWidget {
                       validator: (value) {
                         if (value!.isEmpty) return 'Campo obrigatório.';
                       },
+                      onSaved: (value) {
+                        _name = value!;
+                      },
                     ),
                     SizedBox(height: 5),
                     TextFormField(
@@ -63,6 +71,9 @@ class StudentForm extends StatelessWidget {
                       validator: (value) {
                         if (!EmailValidator.validate(value!) || value.isEmpty)
                           return 'E-mail inválido.';
+                      },
+                      onSaved: (value) {
+                        _email = value!;
                       },
                     ),
                     SizedBox(height: 5),
@@ -106,6 +117,9 @@ class StudentForm extends StatelessWidget {
                           return 'Senha incorreta.';
                         }
                       },
+                      onSaved: (value) {
+                        _confirmPassword = value!;
+                      },
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 200, top: 36.0),
@@ -126,12 +140,26 @@ class StudentForm extends StatelessWidget {
                           ),
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
+                              _formKey.currentState!.save();
+
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text('Confirmando informações'),
+                                  content: Text(
+                                    'Aluno cadastrado com sucesso!',
+                                    style: TextStyle(color: Colors.black),
+                                  ),
+                                  backgroundColor: Colors.white,
                                 ),
                               );
                             }
+
+                            FirebaseFirestore.instance
+                                .collection('user/XCXcmzFQIcWptPsjgwRR/student')
+                                .add({
+                              'name': _name,
+                              'email': _email,
+                              'password': _confirmPassword,
+                            });
                           },
                           child: Text('Confimar'),
                         ),
