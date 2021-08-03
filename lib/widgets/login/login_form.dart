@@ -1,14 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:project/theme/app_theme.dart';
+import 'package:email_validator/email_validator.dart';
 
 class LoginForm extends StatefulWidget {
-  const LoginForm({Key? key}) : super(key: key);
+  LoginForm(this.submitFn);
+
+  final void Function(
+    String email,
+    String password,
+    BuildContext ctx,
+  ) submitFn;
 
   @override
   _LoginFormState createState() => _LoginFormState();
 }
 
 class _LoginFormState extends State<LoginForm> {
+  final _formKey = GlobalKey<FormState>();
+  var _userEmail = '';
+  var _userPassword = '';
+
+  void _trySubmit() {
+    final isValid = _formKey.currentState!.validate();
+    FocusScope.of(context).unfocus();
+
+    if (isValid) {
+      _formKey.currentState!.save();
+      widget.submitFn(_userEmail, _userPassword, context);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -25,36 +46,57 @@ class _LoginFormState extends State<LoginForm> {
                 child: Padding(
                   padding: EdgeInsets.all(80),
                   child: Form(
+                    key: _formKey,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         TextFormField(
+                          validator: (value) {
+                            if (!EmailValidator.validate(value!) ||
+                                value.isEmpty) return 'E-mail inválido';
+                          },
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
                             labelText: 'E-mail',
-                            labelStyle: TextStyle(
-                              color: Colors.cyan,
+                            labelStyle: TextStyle(color: Colors.cyan),
+                            errorStyle: TextStyle(color: Colors.white),
+                            errorBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                            focusedErrorBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
                             ),
                           ),
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
+                          style: TextStyle(color: Colors.white),
+                          onSaved: (value) {
+                            _userEmail = value!;
+                          },
                         ),
                         TextFormField(
+                          validator: (value) {
+                            if (value!.isEmpty || value.length < 6)
+                              return 'Senha muito curta.';
+                          },
                           decoration: InputDecoration(
                             labelText: 'Senha',
-                            labelStyle: TextStyle(
-                              color: Colors.cyan,
+                            labelStyle: TextStyle(color: Colors.cyan),
+                            errorStyle: TextStyle(color: Colors.white),
+                            errorBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                            focusedErrorBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
                             ),
                           ),
                           obscureText: true,
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
+                          style: TextStyle(color: Colors.white),
+                          onSaved: (value) {
+                            _userPassword = value!;
+                          },
                         ),
                         SizedBox(height: 40),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: _trySubmit,
                           child: Text('Login'),
                           style: ButtonStyle(
                             shape: MaterialStateProperty.all<

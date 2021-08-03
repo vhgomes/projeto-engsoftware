@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project/screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:project/screens/student_form.dart';
-import 'package:project/screens/student_grade.dart';
-import 'package:project/screens/student_list.dart';
+import 'package:project/screens/professor/student_form.dart';
+import 'package:project/screens/professor/student_grade.dart';
+import 'package:project/screens/professor/student_list.dart';
 import 'package:project/screens/student_screen.dart';
 import 'package:project/theme/app_theme.dart';
 
@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
         '/Notas%20Professor': (context) => StudentListGrade(),
         '/Cadastro': (context) => StudentForm(),
         '/Notas%20Aluno': (context) => StudentScreen(),
-        '/': (context) => LoginScreen(), // TODO: Rota inicial login screen
+        '/': (context) => LoginScreen(),
       },
     );
   }
