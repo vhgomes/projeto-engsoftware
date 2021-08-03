@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:project/theme/app_theme.dart';
 import 'package:email_validator/email_validator.dart';
 
-class LoginForm extends StatefulWidget {
-  LoginForm(this.submitFn);
+class AuthForm extends StatefulWidget {
+  AuthForm(this.submitFn);
 
   final void Function(
     String email,
@@ -12,10 +12,10 @@ class LoginForm extends StatefulWidget {
   ) submitFn;
 
   @override
-  _LoginFormState createState() => _LoginFormState();
+  _AuthFormState createState() => _AuthFormState();
 }
 
-class _LoginFormState extends State<LoginForm> {
+class _AuthFormState extends State<AuthForm> {
   final _formKey = GlobalKey<FormState>();
   var _userEmail = '';
   var _userPassword = '';

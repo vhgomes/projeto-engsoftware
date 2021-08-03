@@ -1,7 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project/widgets/login/login_form.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:project/widgets/auth/auth_form.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -38,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: LoginForm(_submitLoginForm),
+      body: AuthForm(_submitLoginForm),
     );
   }
 }
