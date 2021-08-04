@@ -50,7 +50,7 @@ class StudentgradeWidgetState extends State<StudentgradeWidget> {
                         height: 30,
                         width: 50,
                         child: TextFormField(
-                          enabled: false,
+                          enabled: isEnable,
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.all(10),
                             hintText: widget.nota1.toString(),
@@ -66,7 +66,7 @@ class StudentgradeWidgetState extends State<StudentgradeWidget> {
                         height: 30,
                         width: 50,
                         child: TextFormField(
-                          enabled: false,
+                          enabled: isEnable,
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.all(10),
                             hintText: widget.nota2.toString(),
@@ -93,7 +93,11 @@ class StudentgradeWidgetState extends State<StudentgradeWidget> {
                   ),
                 ),
                 IconButton(
-                  onPressed: () => {},
+                  onPressed: () {
+                    setState(() {
+                      isEnable = !isEnable;
+                    });
+                  },
                   icon: Icon(Icons.edit),
                   hoverColor: Color(0xff268C82),
                 ),
