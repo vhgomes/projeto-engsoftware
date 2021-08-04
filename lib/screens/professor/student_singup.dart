@@ -19,13 +19,17 @@ class _StudentSignUpState extends State<StudentSignUp> {
     String password,
     BuildContext ctx,
   ) async {
+    UserCredential userCredential;
     var message = '';
 
     try {
-      await FirebaseAuth.instance
+      userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
 
-      FirebaseFirestore.instance.collection('student').add({
+      await FirebaseFirestore.instance
+          .collection('student')
+          .doc(userCredential.user!.uid)
+          .set({
         'name': name,
         'email': email,
       });
