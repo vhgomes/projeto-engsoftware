@@ -1,17 +1,27 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 
-class Studentgrade extends StatelessWidget {
+class StudentgradeWidget extends StatefulWidget {
   final String name;
   final double nota1;
   final double nota2;
   final double media;
 
-  Studentgrade({
+  StudentgradeWidget({
     required this.name,
     required this.nota1,
     required this.nota2,
     required this.media,
   });
+  @override
+  StudentgradeWidgetState createState() {
+    return new StudentgradeWidgetState();
+  }
+}
+
+class StudentgradeWidgetState extends State<StudentgradeWidget> {
+  bool isEnable = false;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +31,7 @@ class Studentgrade extends StatelessWidget {
         children: <Widget>[
           ListTile(
             title: Text(
-              name,
+              widget.name,
               style: TextStyle(
                 color: Color(0xFFF2EDDC),
                 fontSize: 18,
@@ -43,7 +53,7 @@ class Studentgrade extends StatelessWidget {
                           enabled: false,
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.all(10),
-                            hintText: nota1.toString(),
+                            hintText: widget.nota1.toString(),
                             hintStyle: (TextStyle(
                               fontSize: 22,
                               color: Color(0xFFF2EDDC),
@@ -59,7 +69,7 @@ class Studentgrade extends StatelessWidget {
                           enabled: false,
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.all(10),
-                            hintText: nota2.toString(),
+                            hintText: widget.nota2.toString(),
                             hintStyle: (TextStyle(
                               fontSize: 22,
                               color: Color(0xFFF2EDDC),
@@ -71,7 +81,7 @@ class Studentgrade extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.all(3.8),
                         child: Text(
-                          media.toString(),
+                          widget.media.toString(),
                           style: TextStyle(
                             color: Color(0xFFF2EDDC),
                             fontSize: 22,

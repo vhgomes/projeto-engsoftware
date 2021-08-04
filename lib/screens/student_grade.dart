@@ -32,7 +32,7 @@ class StudentListGrade extends StatelessWidget {
         child: ListView.builder(
           padding: const EdgeInsets.all(10.0),
           itemCount: loadedStudents.length,
-          itemBuilder: (context, index) => Studentgrade(
+          itemBuilder: (context, index) => StudentgradeWidget(
             name: loadedStudents[index].name,
             nota1: loadedStudents[index].nota1,
             nota2: loadedStudents[index].nota2,
