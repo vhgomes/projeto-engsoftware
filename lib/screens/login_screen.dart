@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:project/widgets/auth/auth_form.dart';
@@ -14,10 +15,16 @@ class _LoginScreenState extends State<LoginScreen> {
     BuildContext ctx,
   ) async {
     try {
-      await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password)
-          .then(
-              (value) => Navigator.of(context).pushNamed('/Lista%20Estudante'));
+      var userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+
+      var professor = await FirebaseFirestore.instance
+          .collection('professor')
+          .doc(userCredential.user!.uid)
+          .get();
+
+      Navigator.of(context).pushNamed(
+          professor.exists ? '/Lista%20Estudante' : '/Notas%20Aluno');
     } on FirebaseAuthException catch (error) {
       var message = '';
 
