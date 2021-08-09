@@ -32,9 +32,9 @@ class StudentListGrade extends StatelessWidget {
                 itemBuilder: (context, index) => Container(
                       child: StudentGrade(
                         name: documents[index]['name'],
-                        nota1: 0,
-                        nota2: 0,
-                        media: 0,
+                        grade1: 0,
+                        grade2: 0,
+                        average: 0,
                       ),
                     )),
           );
