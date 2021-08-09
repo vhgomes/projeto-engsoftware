@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class StudentGrade extends StatefulWidget {
   final String name;
@@ -48,6 +49,7 @@ class StudentGradeState extends State<StudentGrade> {
                         height: 30,
                         width: 50,
                         child: TextFormField(
+                          inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r"^\d+\.?\d{0,2}"))],
                           enabled: isEnable,
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.all(10),
@@ -64,6 +66,7 @@ class StudentGradeState extends State<StudentGrade> {
                         height: 30,
                         width: 50,
                         child: TextFormField(
+                          inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r"^\d+\.?\d{0,2}"))],
                           enabled: isEnable,
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.all(10),
