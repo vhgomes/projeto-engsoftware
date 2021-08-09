@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 
-class StudentgradeWidget extends StatefulWidget {
+class StudentGrade extends StatefulWidget {
   final String name;
   final double nota1;
   final double nota2;
   final double media;
 
-  StudentgradeWidget({
+  StudentGrade({
     required this.name,
     required this.nota1,
     required this.nota2,
     required this.media,
   });
   @override
-  StudentgradeWidgetState createState() {
-    return new StudentgradeWidgetState();
+  StudentGradeState createState() {
+    return new StudentGradeState();
   }
 }
 
-class StudentgradeWidgetState extends State<StudentgradeWidget> {
+class StudentGradeState extends State<StudentGrade> {
   bool isEnable = false;
 
   @override
