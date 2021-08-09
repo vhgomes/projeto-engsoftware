@@ -31,16 +31,6 @@ class _SingUpFormState extends State<SingUpForm> {
     if (isValid) {
       _formKey.currentState!.save();
       widget.submitFn(_studentName, _studentEmail, _studentPassword, context);
-
-      /*ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            'Aluno cadastrado com sucesso!',
-            style: TextStyle(color: Colors.black),
-          ),
-          backgroundColor: Colors.white,
-        ),
-      );*/
     }
   }
 
@@ -117,6 +107,7 @@ class _SingUpFormState extends State<SingUpForm> {
                         ),
                       ),
                     ),
+                    obscureText: true,
                     validator: (value) {
                       if (value!.isEmpty || value.length < 6)
                         return 'Senha muito curta.';
@@ -136,6 +127,7 @@ class _SingUpFormState extends State<SingUpForm> {
                         ),
                       ),
                     ),
+                    obscureText: true,
                     validator: (value) {
                       if (value!.isEmpty)
                         return 'Campo obrigatório';
@@ -165,7 +157,10 @@ class _SingUpFormState extends State<SingUpForm> {
                           ),
                         ),
                         onPressed: _trySubmit,
-                        child: Text('Confimar'),
+                        child: Text(
+                          'Confimar',
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     ),
                   ),

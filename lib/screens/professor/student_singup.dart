@@ -32,6 +32,9 @@ class _StudentSignUpState extends State<StudentSignUp> {
           .set({
         'name': name,
         'email': email,
+        'grade1': 0.0,
+        'grade2': 0.0,
+        'average': 0.0,
       });
 
       message = 'Aluno cadastrado com sucesso!';
