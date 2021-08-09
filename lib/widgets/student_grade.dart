@@ -3,15 +3,15 @@ import 'package:flutter/services.dart';
 
 class StudentGrade extends StatefulWidget {
   final String name;
-  final double nota1;
-  final double nota2;
-  final double media;
+  final double grade1;
+  final double grade2;
+  final double average;
 
   StudentGrade({
     required this.name,
-    required this.nota1,
-    required this.nota2,
-    required this.media,
+    required this.grade1,
+    required this.grade2,
+    required this.average,
   });
   @override
   StudentGradeState createState() {
@@ -49,11 +49,14 @@ class StudentGradeState extends State<StudentGrade> {
                         height: 30,
                         width: 50,
                         child: TextFormField(
-                          inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r"^\d+\.?\d{0,2}"))],
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(
+                                RegExp(r"^\d+\.?\d{0,2}"))
+                          ],
                           enabled: isEnable,
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.all(10),
-                            hintText: widget.nota1.toString(),
+                            hintText: widget.grade1.toString(),
                             hintStyle: (TextStyle(
                               fontSize: 22,
                               color: Color(0xFFF2EDDC),
@@ -66,11 +69,14 @@ class StudentGradeState extends State<StudentGrade> {
                         height: 30,
                         width: 50,
                         child: TextFormField(
-                          inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r"^\d+\.?\d{0,2}"))],
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(
+                                RegExp(r"^\d+\.?\d{0,2}"))
+                          ],
                           enabled: isEnable,
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.all(10),
-                            hintText: widget.nota2.toString(),
+                            hintText: widget.grade2.toString(),
                             hintStyle: (TextStyle(
                               fontSize: 22,
                               color: Color(0xFFF2EDDC),
@@ -82,7 +88,7 @@ class StudentGradeState extends State<StudentGrade> {
                       Padding(
                         padding: EdgeInsets.all(3.8),
                         child: Text(
-                          widget.media.toString(),
+                          widget.average.toString(),
                           style: TextStyle(
                             color: Color(0xFFF2EDDC),
                             fontSize: 22,
