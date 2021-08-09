@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project/screens/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:project/screens/student_form.dart';
-import 'package:project/screens/student_grade.dart';
-import 'package:project/screens/student_list.dart';
+import 'package:project/screens/professor/student_singup.dart';
+import 'package:project/screens/professor/student_grade.dart';
+import 'package:project/screens/professor/student_list.dart';
 import 'package:project/screens/student_screen.dart';
 import 'package:project/theme/app_theme.dart';
 
@@ -48,9 +48,9 @@ class MyApp extends StatelessWidget {
       routes: {
         '/Lista%20Estudante': (context) => StudentList(),
         '/Notas%20Professor': (context) => StudentListGrade(),
-        '/Cadastro': (context) => StudentForm(),
+        '/Cadastro': (context) => StudentSignUp(),
         '/Notas%20Aluno': (context) => StudentScreen(),
-        '/': (context) => StudentListGrade(), // TODO: Rota inicial login screen
+        '/': (context) => LoginScreen(),
       },
     );
   }
