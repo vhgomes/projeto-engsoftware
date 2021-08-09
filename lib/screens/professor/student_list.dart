@@ -16,6 +16,12 @@ class StudentList extends StatelessWidget {
       body: StreamBuilder(
           stream: FirebaseFirestore.instance.collection('student').snapshots(),
           builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
+            if (streamSnapshot.connectionState == ConnectionState.waiting) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+
             final documents = streamSnapshot.data!.docs;
 
             return Container(
