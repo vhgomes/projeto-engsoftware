@@ -99,11 +99,6 @@ class StudentGradeState extends State<StudentGrade> {
                   icon: Icon(Icons.edit),
                   hoverColor: Color(0xff268C82),
                 ),
-                IconButton(
-                  onPressed: () => {},
-                  icon: Icon(Icons.delete_outlined),
-                  hoverColor: Color(0xff268C82),
-                ),
               ],
             ),
           ),
