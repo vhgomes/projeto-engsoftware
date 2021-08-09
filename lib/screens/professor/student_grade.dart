@@ -10,6 +10,7 @@ class StudentListGrade extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: drawerBGClor,
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       drawer: ProfessorDrawer(),
       body: StreamBuilder(
@@ -29,7 +30,7 @@ class StudentListGrade extends StatelessWidget {
                 padding: const EdgeInsets.all(10.0),
                 itemCount: documents.length,
                 itemBuilder: (context, index) => Container(
-                      child: Studentgrade(
+                      child: StudentGrade(
                         name: documents[index]['name'],
                         nota1: 0,
                         nota2: 0,

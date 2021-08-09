@@ -39,12 +39,6 @@ class _CState extends State<CollapsingTile> {
     return InkWell(
       onTap: widget.onTap,
       child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
-          color: widget.isSelected
-              ? Colors.transparent.withOpacity(0.2)
-              : Colors.transparent,
-        ),
         width: widthAnimation.value,
         margin: EdgeInsets.symmetric(horizontal: 8),
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 5),
@@ -52,7 +46,7 @@ class _CState extends State<CollapsingTile> {
           children: <Widget>[
             Icon(
               widget.icon,
-              color: widget.isSelected ? Color(0xff2DA690) : Color(0xffFCEDDC),
+              color: Color(0xffffffff),
               size: 33.0,
             ),
             SizedBox(width: sizedBoxAnimation.value),
