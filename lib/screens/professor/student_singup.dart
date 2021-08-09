@@ -54,6 +54,7 @@ class _StudentSignUpState extends State<StudentSignUp> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: drawerBGClor,
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       drawer: ProfessorDrawer(),
       body: SingUpForm(_submitAuthForm),
