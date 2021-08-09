@@ -11,6 +11,7 @@ class StudentScreen extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: drawerBGClor,
+          iconTheme: IconThemeData(color: Colors.white),
         ),
         drawer: NavigationDrawerWidget(
           navigationOptions: [

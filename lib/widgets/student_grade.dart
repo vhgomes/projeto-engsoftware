@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 
-class Studentgrade extends StatelessWidget {
+class StudentgradeWidget extends StatefulWidget {
   final String name;
   final double nota1;
   final double nota2;
   final double media;
 
-  Studentgrade({
+  StudentgradeWidget({
     required this.name,
     required this.nota1,
     required this.nota2,
     required this.media,
   });
+  @override
+  StudentgradeWidgetState createState() {
+    return new StudentgradeWidgetState();
+  }
+}
+
+class StudentgradeWidgetState extends State<StudentgradeWidget> {
+  bool isEnable = false;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +29,7 @@ class Studentgrade extends StatelessWidget {
         children: <Widget>[
           ListTile(
             title: Text(
-              name,
+              widget.name,
               style: TextStyle(
                 color: Color(0xFFF2EDDC),
                 fontSize: 18,
@@ -40,8 +48,10 @@ class Studentgrade extends StatelessWidget {
                         height: 30,
                         width: 50,
                         child: TextFormField(
+                          enabled: isEnable,
                           decoration: InputDecoration(
-                            hintText: nota1.toString(),
+                            contentPadding: EdgeInsets.all(10),
+                            hintText: widget.nota1.toString(),
                             hintStyle: (TextStyle(
                               fontSize: 22,
                               color: Color(0xFFF2EDDC),
@@ -54,8 +64,10 @@ class Studentgrade extends StatelessWidget {
                         height: 30,
                         width: 50,
                         child: TextFormField(
+                          enabled: isEnable,
                           decoration: InputDecoration(
-                            hintText: nota2.toString(),
+                            contentPadding: EdgeInsets.all(10),
+                            hintText: widget.nota2.toString(),
                             hintStyle: (TextStyle(
                               fontSize: 22,
                               color: Color(0xFFF2EDDC),
@@ -64,19 +76,26 @@ class Studentgrade extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Text(
-                        media.toString(),
-                        style: TextStyle(
-                          color: Color(0xFFF2EDDC),
-                          fontSize: 18,
-                          fontWeight: FontWeight.w400,
+                      Padding(
+                        padding: EdgeInsets.all(3.8),
+                        child: Text(
+                          widget.media.toString(),
+                          style: TextStyle(
+                            color: Color(0xFFF2EDDC),
+                            fontSize: 22,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
                 IconButton(
-                  onPressed: () => {},
+                  onPressed: () {
+                    setState(() {
+                      isEnable = !isEnable;
+                    });
+                  },
                   icon: Icon(Icons.edit),
                   hoverColor: Color(0xff268C82),
                 ),
