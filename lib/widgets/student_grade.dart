@@ -38,7 +38,8 @@ class StudentGradeState extends State<StudentGrade> {
           .update({
             'grade1': widget.grade1,
             'grade2': widget.grade2,
-            'average': (widget.grade1 + widget.grade2) / 2,
+            'average': double.parse(
+                ((widget.grade1 + widget.grade2) / 2).toStringAsFixed(2)),
           })
           .then((value) => print("Ataulizado com sucesso"))
           .catchError((error) => print('Não foi possivel atualizar'));
