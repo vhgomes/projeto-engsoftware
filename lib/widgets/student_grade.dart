@@ -1,17 +1,25 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class StudentGrade extends StatefulWidget {
   final String name;
   final double grade1;
   final double grade2;
   final double average;
+  double grade1aux;
+  double grade2aux;
+  double averageaux;
 
   StudentGrade({
     required this.name,
     required this.grade1,
     required this.grade2,
     required this.average,
+    this.grade1aux = 0,
+    this.grade2aux = 0,
+    this.averageaux = 0,
   });
   @override
   StudentGradeState createState() {
@@ -24,6 +32,21 @@ class StudentGradeState extends State<StudentGrade> {
 
   @override
   Widget build(BuildContext context) {
+    CollectionReference grades =
+        FirebaseFirestore.instance.collection('student');
+
+    Future<void> updadeGrade() {
+      return grades
+          .doc(grades.id)
+          .update({
+            'grade1': widget.grade1aux,
+            'grade2': widget.grade2aux,
+            'average': widget.averageaux,
+          })
+          .then((value) => print("Ataulizado com sucesso"))
+          .catchError((error) => print('Não foi possivel atualizar'));
+    }
+
     return Card(
       color: Color(0xff2DA690),
       child: Column(
@@ -63,6 +86,9 @@ class StudentGradeState extends State<StudentGrade> {
                               fontWeight: FontWeight.w400,
                             )),
                           ),
+                          onChanged: (value) {
+                            widget.grade1aux = double.parse(value);
+                          },
                         ),
                       ),
                       Container(
@@ -83,6 +109,9 @@ class StudentGradeState extends State<StudentGrade> {
                               fontWeight: FontWeight.w400,
                             )),
                           ),
+                          onChanged: (value) {
+                            widget.grade2aux = double.parse(value);
+                          },
                         ),
                       ),
                       Padding(
@@ -102,7 +131,14 @@ class StudentGradeState extends State<StudentGrade> {
                 IconButton(
                   onPressed: () {
                     setState(() {
-                      isEnable = !isEnable;
+                      if (isEnable == false)
+                        isEnable = !isEnable;
+                      else {
+                        widget.averageaux =
+                            (widget.grade1aux + widget.grade2aux) / 2;
+                        updadeGrade();
+                        isEnable = !isEnable;
+                      }
                     });
                   },
                   icon: Icon(Icons.edit),

@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
         '/Notas%20Professor': (context) => StudentListGrade(),
         '/Cadastro': (context) => StudentSignUp(),
         '/Notas%20Aluno': (context) => StudentScreen(),
-        '/': (context) => LoginScreen(),
+        '/': (context) => StudentListGrade(),
       },
     );
   }
