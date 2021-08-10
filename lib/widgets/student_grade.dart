@@ -1,14 +1,15 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:math';
 
+// ignore: must_be_immutable
 class StudentGrade extends StatefulWidget {
   final String id;
   final String name;
-  final double grade1;
-  final double grade2;
-  final double average;
+  double grade1;
+  double grade2;
+  double average;
   double grade1aux;
   double grade2aux;
   double averageaux;
@@ -41,9 +42,9 @@ class StudentGradeState extends State<StudentGrade> {
       return grades
           .doc(widget.id)
           .update({
-            'grade1': widget.grade1aux,
-            'grade2': widget.grade2aux,
-            'average': widget.averageaux,
+            'grade1': widget.grade1,
+            'grade2': widget.grade2,
+            'average': (widget.grade1 + widget.grade2) / 2,
           })
           .then((value) => print("Ataulizado com sucesso"))
           .catchError((error) => print('Não foi possivel atualizar'));
@@ -72,7 +73,7 @@ class StudentGradeState extends State<StudentGrade> {
                     children: [
                       Container(
                         height: 30,
-                        width: 50,
+                        width: 80,
                         child: TextFormField(
                           inputFormatters: [
                             FilteringTextInputFormatter.allow(
@@ -80,6 +81,7 @@ class StudentGradeState extends State<StudentGrade> {
                           ],
                           enabled: isEnable,
                           decoration: InputDecoration(
+                            border: InputBorder.none,
                             contentPadding: EdgeInsets.all(10),
                             hintText: widget.grade1.toString(),
                             hintStyle: (TextStyle(
@@ -89,33 +91,14 @@ class StudentGradeState extends State<StudentGrade> {
                             )),
                           ),
                           onChanged: (value) {
-                            if (double.parse(value) > 10) {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title:
-                                        const Text('Esse valor é muito grande'),
-                                    content: const Text(
-                                        'Insira um valor entre 0 e 10'),
-                                    actions: <Widget>[
-                                      TextButton(
-                                          onPressed: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: const Text('OK')),
-                                    ],
-                                  );
-                                },
-                              );
-                            }
-                            widget.grade1aux = double.parse(value);
+                            widget.grade1 = min(double.parse(value), 10);
+                            updadeGrade();
                           },
                         ),
                       ),
                       Container(
                         height: 30,
-                        width: 50,
+                        width: 80,
                         child: TextFormField(
                           inputFormatters: [
                             FilteringTextInputFormatter.allow(
@@ -123,6 +106,7 @@ class StudentGradeState extends State<StudentGrade> {
                           ],
                           enabled: isEnable,
                           decoration: InputDecoration(
+                            border: InputBorder.none,
                             contentPadding: EdgeInsets.all(10),
                             hintText: widget.grade2.toString(),
                             hintStyle: (TextStyle(
@@ -132,27 +116,8 @@ class StudentGradeState extends State<StudentGrade> {
                             )),
                           ),
                           onChanged: (value) {
-                            if (double.parse(value) > 10) {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title:
-                                        const Text('Esse valor é muito grande'),
-                                    content: const Text(
-                                        'Insira um valor entre 0 e 10'),
-                                    actions: <Widget>[
-                                      TextButton(
-                                          onPressed: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: const Text('OK')),
-                                    ],
-                                  );
-                                },
-                              );
-                            }
-                            widget.grade2aux = double.parse(value);
+                            widget.grade2 = min(double.parse(value), 10);
+                            updadeGrade();
                           },
                         ),
                       ),
@@ -173,14 +138,7 @@ class StudentGradeState extends State<StudentGrade> {
                 IconButton(
                   onPressed: () {
                     setState(() {
-                      if (isEnable == false)
-                        isEnable = !isEnable;
-                      else {
-                        widget.averageaux =
-                            (widget.grade1aux + widget.grade2aux) / 2;
-                        updadeGrade();
-                        isEnable = !isEnable;
-                      }
+                      isEnable = !isEnable;
                     });
                   },
                   icon: Icon(Icons.edit),
