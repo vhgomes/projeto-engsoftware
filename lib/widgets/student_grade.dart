@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -89,6 +89,26 @@ class StudentGradeState extends State<StudentGrade> {
                             )),
                           ),
                           onChanged: (value) {
+                            if (double.parse(value) > 10) {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title:
+                                        const Text('Esse valor é muito grande'),
+                                    content: const Text(
+                                        'Insira um valor entre 0 e 10'),
+                                    actions: <Widget>[
+                                      TextButton(
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: const Text('OK')),
+                                    ],
+                                  );
+                                },
+                              );
+                            }
                             widget.grade1aux = double.parse(value);
                           },
                         ),
@@ -112,6 +132,26 @@ class StudentGradeState extends State<StudentGrade> {
                             )),
                           ),
                           onChanged: (value) {
+                            if (double.parse(value) > 10) {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title:
+                                        const Text('Esse valor é muito grande'),
+                                    content: const Text(
+                                        'Insira um valor entre 0 e 10'),
+                                    actions: <Widget>[
+                                      TextButton(
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: const Text('OK')),
+                                    ],
+                                  );
+                                },
+                              );
+                            }
                             widget.grade2aux = double.parse(value);
                           },
                         ),
