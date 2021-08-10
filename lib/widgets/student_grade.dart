@@ -1,17 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:math';
 
+// ignore: must_be_immutable
 class StudentGrade extends StatefulWidget {
+  final String id;
   final String name;
-  final double grade1;
-  final double grade2;
-  final double average;
+  double grade1;
+  double grade2;
+  double average;
+  double grade1aux;
+  double grade2aux;
+  double averageaux;
 
   StudentGrade({
+    required this.id,
     required this.name,
     required this.grade1,
     required this.grade2,
     required this.average,
+    this.grade1aux = 0,
+    this.grade2aux = 0,
+    this.averageaux = 0,
   });
   @override
   StudentGradeState createState() {
@@ -24,6 +35,21 @@ class StudentGradeState extends State<StudentGrade> {
 
   @override
   Widget build(BuildContext context) {
+    CollectionReference grades =
+        FirebaseFirestore.instance.collection('student');
+
+    Future<void> updadeGrade() {
+      return grades
+          .doc(widget.id)
+          .update({
+            'grade1': widget.grade1,
+            'grade2': widget.grade2,
+            'average': (widget.grade1 + widget.grade2) / 2,
+          })
+          .then((value) => print("Ataulizado com sucesso"))
+          .catchError((error) => print('Não foi possivel atualizar'));
+    }
+
     return Card(
       color: Color(0xff2DA690),
       child: Column(
@@ -47,7 +73,7 @@ class StudentGradeState extends State<StudentGrade> {
                     children: [
                       Container(
                         height: 30,
-                        width: 50,
+                        width: 80,
                         child: TextFormField(
                           inputFormatters: [
                             FilteringTextInputFormatter.allow(
@@ -55,6 +81,7 @@ class StudentGradeState extends State<StudentGrade> {
                           ],
                           enabled: isEnable,
                           decoration: InputDecoration(
+                            border: InputBorder.none,
                             contentPadding: EdgeInsets.all(10),
                             hintText: widget.grade1.toString(),
                             hintStyle: (TextStyle(
@@ -63,11 +90,15 @@ class StudentGradeState extends State<StudentGrade> {
                               fontWeight: FontWeight.w400,
                             )),
                           ),
+                          onChanged: (value) {
+                            widget.grade1 = min(double.parse(value), 10);
+                            updadeGrade();
+                          },
                         ),
                       ),
                       Container(
                         height: 30,
-                        width: 50,
+                        width: 80,
                         child: TextFormField(
                           inputFormatters: [
                             FilteringTextInputFormatter.allow(
@@ -75,6 +106,7 @@ class StudentGradeState extends State<StudentGrade> {
                           ],
                           enabled: isEnable,
                           decoration: InputDecoration(
+                            border: InputBorder.none,
                             contentPadding: EdgeInsets.all(10),
                             hintText: widget.grade2.toString(),
                             hintStyle: (TextStyle(
@@ -83,6 +115,10 @@ class StudentGradeState extends State<StudentGrade> {
                               fontWeight: FontWeight.w400,
                             )),
                           ),
+                          onChanged: (value) {
+                            widget.grade2 = min(double.parse(value), 10);
+                            updadeGrade();
+                          },
                         ),
                       ),
                       Padding(
