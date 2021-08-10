@@ -27,17 +27,18 @@ class StudentListGrade extends StatelessWidget {
           return Container(
             decoration: AppTheme.backgroudTheme(),
             child: ListView.builder(
-                padding: const EdgeInsets.all(10.0),
-                itemCount: documents.length,
-                itemBuilder: (context, index) => Container(
-                      child: StudentGrade(
-                        id: documents[index].id,
-                        name: documents[index]['name'],
-                        grade1: documents[index]['grade1'],
-                        grade2: documents[index]['grade2'],
-                        average: documents[index]['average'],
-                      ),
-                    )),
+              padding: const EdgeInsets.all(10.0),
+              itemCount: documents.length,
+              itemBuilder: (context, index) => Container(
+                child: StudentGrade(
+                  id: documents[index].id,
+                  name: documents[index]['name'],
+                  grade1: documents[index]['grade1'],
+                  grade2: documents[index]['grade2'],
+                  average: documents[index]['average'],
+                ),
+              ),
+            ),
           );
         },
       ),
