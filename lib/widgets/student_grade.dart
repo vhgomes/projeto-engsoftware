@@ -10,9 +10,6 @@ class StudentGrade extends StatefulWidget {
   double grade1;
   double grade2;
   double average;
-  double grade1aux;
-  double grade2aux;
-  double averageaux;
 
   StudentGrade({
     required this.id,
@@ -20,9 +17,6 @@ class StudentGrade extends StatefulWidget {
     required this.grade1,
     required this.grade2,
     required this.average,
-    this.grade1aux = 0,
-    this.grade2aux = 0,
-    this.averageaux = 0,
   });
   @override
   StudentGradeState createState() {
@@ -44,7 +38,8 @@ class StudentGradeState extends State<StudentGrade> {
           .update({
             'grade1': widget.grade1,
             'grade2': widget.grade2,
-            'average': (widget.grade1 + widget.grade2) / 2,
+            'average': double.parse(
+                ((widget.grade1 + widget.grade2) / 2).toStringAsFixed(2)),
           })
           .then((value) => print("Ataulizado com sucesso"))
           .catchError((error) => print('Não foi possivel atualizar'));
