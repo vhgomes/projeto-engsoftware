@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class StudentGrade extends StatefulWidget {
+  final String id;
   final String name;
   final double grade1;
   final double grade2;
@@ -13,6 +14,7 @@ class StudentGrade extends StatefulWidget {
   double averageaux;
 
   StudentGrade({
+    required this.id,
     required this.name,
     required this.grade1,
     required this.grade2,
@@ -37,7 +39,7 @@ class StudentGradeState extends State<StudentGrade> {
 
     Future<void> updadeGrade() {
       return grades
-          .doc(grades.id)
+          .doc(widget.id)
           .update({
             'grade1': widget.grade1aux,
             'grade2': widget.grade2aux,
