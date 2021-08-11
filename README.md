@@ -7,6 +7,18 @@
 ## Link para o site
 O site pode ser acessado por este [link](https://vhgomes.github.io/prod-projetoengsoftware/#/).
  
+## Link para o vídeo
+A apresentação do trabalho pode ser acessada por este [link](https://www.youtube.com/watch?v=uG4HnvMWmGs)
+
+## Credenciais para login
+### Professor:
+- e-mail: lucas_lira@gmail.com
+- senha: lucaslira
+
+### Aluno:
+- e-mail: matheus@gmail.com
+- senha: matheus123
+
 ## Objetivo
  
 O objetivo do trabalho é reproduzir um app de controle de notas, onde os professores colocam duas notas e o app automaticamente calcula a média.
