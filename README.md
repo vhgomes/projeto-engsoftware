@@ -1,8 +1,8 @@
 # Trabalho de Engenharia de Software
 ## Participantes
+- Thaís Faustino Calixto (Github - [@thaisclxt](https://github.com/thaisclxt))
 - Victor Hugo Claudio Gomes (Github - [@vhgomes](https://github.com/vhgomes))
 - Filipe Marques de Souza (Github - [@FilipeMSouza](https://github.com/FilipeMSouza))
-- Thaís Faustino Calixto (Github - [@thaisclxt](https://github.com/thaisclxt))
 
 ## Link para o site
 O site pode ser acessado por este [link](https://vhgomes.github.io/prod-projetoengsoftware/#/).
